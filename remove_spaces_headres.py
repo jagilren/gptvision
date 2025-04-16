@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime
 # Ruta del archivo CSV original
-def insertar_ano(archivo_csv):
+def remove_spces_headers(archivo_csv):
     # Leer el archivo CSV
     df = pd.read_csv(archivo_csv)
 

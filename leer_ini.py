@@ -1,5 +1,5 @@
 import configparser# Leer archivo .ini
-def leer_ini(config_file_path):
+def leer_folders(config_file_path):
     config = configparser.ConfigParser()
     config.read(config_file_path)
 
@@ -9,3 +9,11 @@ def leer_ini(config_file_path):
     CARPETA_PROCESADAS = config.get('Paths', 'CARPETA_PROCESADAS')
     return CARPETA_IMAGENES, CSV_FOLDER,CARPETA_PROCESADAS
     # Asegurar que las carpetas existan
+
+
+def leer_prompt(config_file_path):
+    config = configparser.ConfigParser()
+    config.read(config_file_path)
+
+    # Obtener rutas
+    PROMPOT = config.get('Prompt', 'Prompt_Vision')
