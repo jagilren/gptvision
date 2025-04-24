@@ -15,7 +15,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI(api_key=api_key)
 
-CARPETA_IMAGENES,CARPETA_CSV,CARPETA_PROCESADAS= leer_ini.leer_folders("SETTINGS.INI")
+CARPETA_IMAGENES,CARPETA_CSV,CARPETA_PROCESADAS,CARPETA_ERROR= leer_ini.leer_folders("SETTINGS.INI")
 
 
 # Crea carpetas si no existen
@@ -48,7 +48,7 @@ def generar_nombre_csv():
             return ruta
         i += 1
 
-#Se asegura que l aprimera linea sea la de los encabezados de los campos
+#Se asegura que la primera linea sea la de los encabezados de los campos
 def asegurar_encabezados_csv(contenido_csv: str) -> str:
     encabezados_correctos = "Date,Time,Value,pH,Abs.,SFR"
 
@@ -69,11 +69,11 @@ def asegurar_encabezados_csv(contenido_csv: str) -> str:
 
 
 # Mueve imagen procesada evitando sobrescribir
-def mover_imagen(ruta_origen, nombre_archivo):
+def mover_imagen(ruta_origen, nombre_archivo,ruta_destino):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     nombre, ext = os.path.splitext(nombre_archivo)
     nuevo_nombre = f"{nombre}_{timestamp}{ext}"
-    destino = os.path.join(CARPETA_PROCESADAS, nuevo_nombre)
+    destino = os.path.join(ruta_destino, nuevo_nombre)
     shutil.move(ruta_origen, destino)
     return destino
 
@@ -114,6 +114,12 @@ def procesar_imagenes():
             )
 
             csv_content = respuesta.choices[0].message.content.strip()
+            #Verificamos si GPT Vision  nos devolvio un mensaje de error al analizar la imagem
+            if csv_content[0:2].upper()== 'LO':
+                #Debemos trasladar la imagen al folder de imagenes no procesadas
+                ruta_imagen_error = CARPETA_ERROR
+                nueva_ruta = mover_imagen(ruta, archivo,ruta_imagen_error)
+                return
 
             csv_content= asegurar_encabezados_csv(csv_content)
 
@@ -123,7 +129,7 @@ def procesar_imagenes():
             insertar_ano.insertar_ano(ruta_csv)
             print(f"📄 CSV guardado como: {ruta_csv}")
 
-            nueva_ruta = mover_imagen(ruta, archivo)
+            nueva_ruta = mover_imagen(ruta, archivo,CARPETA_PROCESADAS)
             print(f"📦 Imagen movida a: {nueva_ruta}")
 
         except Exception as e:
@@ -133,6 +139,6 @@ if __name__ == "__main__":
     while True:
         procesar_imagenes()
         print(f"Ciclo terminado {datetime.now()}")
-        time.sleep(10)
+        time.sleep(3)
 
 
