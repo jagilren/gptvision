@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed1d2492-8ff1-43b4-a0c6-871357129507" name="Changes" comment="Before of win32py">
-      <change afterPath="$PROJECT_DIR$/myservice.py" afterDir="false" />
+    <list default="true" id="ed1d2492-8ff1-43b4-a0c6-871357129507" name="Changes" comment="Rutina de error imagenes no incosistentes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SETTINGS.INI" beforeDir="false" afterPath="$PROJECT_DIR$/SETTINGS.INI" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leer_ini.py" beforeDir="false" afterPath="$PROJECT_DIR$/leer_ini.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jagilren&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jagilren/gptvision.git&quot;,
+    &quot;accountId&quot;: &quot;21e546b3-c210-47eb-aa9d-137a771017ec&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/insertar_ano.py" root0="SKIP_INSPECTION" />
   </component>
@@ -131,12 +140,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744838886291</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Rutina de error imagenes no incosistentes">
+      <option name="closed" value="true" />
+      <created>1745526572692</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745526572692</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Before of win32py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Before of win32py" />
+    <MESSAGE value="Rutina de error imagenes no incosistentes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rutina de error imagenes no incosistentes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -148,28 +166,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>135</line>
+          <line>138</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/insertar_ano.py</url>
           <line>5</line>
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>117</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/leer_ini.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

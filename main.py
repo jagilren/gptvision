@@ -96,6 +96,9 @@ def procesar_imagenes():
         try:
             respuesta = client.chat.completions.create(
                 model="gpt-4o",
+                # model='gpt-4-vision-preview'
+                # model = 'GPT-4o Mini'
+                # model ='GPT-4.1'
                 temperature=0.2,
                 messages=[
                     {
@@ -139,6 +142,6 @@ if __name__ == "__main__":
     while True:
         procesar_imagenes()
         print(f"Ciclo terminado {datetime.now()}")
-        time.sleep(3)
+        time.sleep(20)
 
 
