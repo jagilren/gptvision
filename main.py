@@ -4,38 +4,54 @@ import shutil
 import leer_ini
 import insertar_ano
 
+
+from PIL import Image
+import hashlib
+
+from pathlib import Path
 from datetime import datetime
 import time
 from openai import OpenAI
 from dotenv import load_dotenv
 
-# Carga variables de entorno, como tu API KEY
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
 
-client = OpenAI(api_key=api_key)
+#Genera HASH para hacer comparaciones binarias de imagenes exactas
+def hash_imagen(ruta_imagen):
+    """Devuelve un hash MD5 de los datos en bruto de la imagen."""
+    with Image.open(ruta_imagen) as img:
+        return hashlib.md5(img.tobytes()).hexdigest()
 
-CARPETA_IMAGENES,CARPETA_CSV,CARPETA_PROCESADAS,CARPETA_ERROR= leer_ini.leer_folders("SETTINGS.INI")
+#Rutina de comparación de imagenes exactas
+def comparar_imagen_con_folder(hash_imagen_actual,  CARPETA_PROCESADAS):
+    '''Compara la imagen dada contra todas las imágenes en el folder.'''
+
+    folder_object_proc = Path(CARPETA_PROCESADAS)
+    image_exts = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff'}
+    #Trae todas la imagagenes,  y las ordena por fecha de modificación a la inversa
+    pict_files = [f for f in folder_object_proc.iterdir() if f.suffix.lower() in image_exts and f.is_file()]
+    pict_files.sort(key=lambda f: f.stat().st_mtime, reverse=True)
+
+    imagenes_iguales = []
+
+    for archivo in pict_files: #os.listdir(CARPETA_PROCESADAS)
+        ruta_completa = os.path.join(CARPETA_PROCESADAS, archivo)
+        if os.path.isfile(ruta_completa):
+            hash_imagen_compare = hash_imagen(ruta_completa)
+            try:
+                if hash_imagen_compare == hash_imagen_actual:
+                    imagenes_iguales.append(archivo)
+                    break
+            except Exception as e:
+                print(f"Error al procesar '{archivo}': {e}")
+
+    return imagenes_iguales
 
 
-# Crea carpetas si no existen
-os.makedirs(CARPETA_IMAGENES, exist_ok=True)
-os.makedirs(CARPETA_CSV, exist_ok=True)
-os.makedirs(CARPETA_PROCESADAS, exist_ok=True)
-
-# Prompt personalizado en español
-PROMPT = (
-    "Extrae únicamente los datos tabulares de esta imagen, en formato CSV plano. "
-    "Los encabezados deben ser exactamente: Date, Time, Value, pH, Abs., SFR.\n"
-    "Evita incluir cualquier texto, comentario o bloque de código como ```csv o ```.\n"
-    "Devuelve solo los datos."
-)
 
 # Codifica imagen a Base64
 def codificar_base64(ruta):
     with open(ruta, "rb") as img:
         return base64.b64encode(img.read()).decode("utf-8")
-
 
 
 # Genera nombre de archivo CSV sin sobrescribir
@@ -90,8 +106,17 @@ def procesar_imagenes():
 
     for archivo in archivos:
         ruta = os.path.join(CARPETA_IMAGENES, archivo)
-        print(f"🧠 Procesando: {archivo}")
+        imagen_hasheada = hash_imagen(ruta)
+        if comparar_imagen_con_folder(imagen_hasheada,CARPETA_PROCESADAS):
+            nueva_ruta = mover_imagen(ruta, archivo, CARPETA_PROCESADAS)
+            return
+
+
+    for archivo in archivos:
+        ruta = os.path.join(CARPETA_IMAGENES, archivo)
         imagen_codificada = codificar_base64(ruta)
+        print(f"🧠 Procesando: {archivo}")
+
 
         try:
             respuesta = client.chat.completions.create(
@@ -138,10 +163,32 @@ def procesar_imagenes():
         except Exception as e:
             print(f"❌ Error procesando {archivo}: {e}")
 
+
+# Carga variables de entorno, como tu API KEY
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+
+client = OpenAI(api_key=api_key)
+
+CARPETA_IMAGENES,CARPETA_CSV,CARPETA_PROCESADAS,CARPETA_ERROR= leer_ini.leer_folders("SETTINGS.INI")
+
+
+# Crea carpetas si no existen
+os.makedirs(CARPETA_IMAGENES, exist_ok=True)
+os.makedirs(CARPETA_CSV, exist_ok=True)
+os.makedirs(CARPETA_PROCESADAS, exist_ok=True)
+
+# Prompt personalizado en español
+PROMPT = (
+    "Extrae únicamente los datos tabulares de esta imagen, en formato CSV plano. "
+    "Los encabezados deben ser exactamente: Date, Time, Value, pH, Abs., SFR.\n"
+    "Evita incluir cualquier texto, comentario o bloque de código como ```csv o ```.\n"
+    "Devuelve solo los datos."
+)
+
+
 if __name__ == "__main__":
     while True:
         procesar_imagenes()
         print(f"Ciclo terminado {datetime.now()}")
-        time.sleep(20)
-
-
+        time.sleep(3)
