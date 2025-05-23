@@ -94,7 +94,7 @@ def mover_imagen(ruta_origen, nombre_archivo,ruta_destino):
     return destino
 
 # Procesamiento principal
-def procesar_imagenes():
+def procesar_imagenes_wad_out():
     archivos = [
         f for f in os.listdir(CARPETA_IMAGENES)
         if f.lower().endswith((".png", ".jpg", ".jpeg"))
@@ -189,6 +189,6 @@ PROMPT = (
 
 if __name__ == "__main__":
     while True:
-        procesar_imagenes()
+        procesar_imagenes_wad_out()
         print(f"Ciclo terminado {datetime.now()}")
         time.sleep(3)
