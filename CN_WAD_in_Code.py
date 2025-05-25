@@ -1,4 +1,4 @@
-#24 Mayo 2025 Este archivo se debe eliminar es solo de pruebas
+#24 Mayo 2025 Este archivo se debe eliminar es solo de pruebas borrar
 import openai
 import pandas as pd
 from openpyxl import load_workbook
