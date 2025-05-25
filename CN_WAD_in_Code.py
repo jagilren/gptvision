@@ -1,10 +1,11 @@
+#24 Mayo 2025 Este archivo se debe eliminar
 import openai
 import pandas as pd
 from openpyxl import load_workbook
 from PIL import Image
 
 # Configura tu clave de API de OpenAI
-openai.api_key = "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"
+
 
 # Ruta a la imagen que contiene la tabla
 ruta_imagen = "WhatsApp Image 2025-05-23 at 06.30.43.jpeg"
