@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed1d2492-8ff1-43b4-a0c6-871357129507" name="Changes" comment="Rutina de error imagenes no incosistentes">
+    <list default="true" id="ed1d2492-8ff1-43b4-a0c6-871357129507" name="Changes" comment="Preliminar Analisis Entrada WAD 03">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,15 +49,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.myservice.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/innovacion/PycharmProjects/OpenAIVisionPreview&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.CN_WAD_in_Code.executor": "Debug",
+    "Python.main.executor": "Debug",
+    "Python.myservice.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/innovacion/PycharmProjects/OpenAIVisionPreview"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\innovacion\PycharmProjects\OpenAIVisionPreview" />
@@ -66,6 +66,28 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="CN_WAD_in_Code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OpenAIVisionPreview" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CN_WAD_in_Code.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="OpenAIVisionPreview" />
       <option name="ENV_FILES" value="" />
@@ -112,6 +134,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CN_WAD_in_Code" />
         <item itemvalue="Python.myservice" />
       </list>
     </recent_temporary>
@@ -148,13 +171,83 @@
       <option name="project" value="LOCAL" />
       <updated>1745526572692</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Before remove roow with &quot;'''&quot; characters">
+      <option name="closed" value="true" />
+      <created>1745678512077</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745678512077</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Avoid Process Identical Images WAD">
+      <option name="closed" value="true" />
+      <created>1747169214168</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747169214169</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Preliminar Analisis Entrada WAD">
+      <option name="closed" value="true" />
+      <created>1748029840875</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748029840875</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Preliminar Analisis Entrada WAD 01">
+      <option name="closed" value="true" />
+      <created>1748134802836</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748134802836</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Preliminar Analisis Entrada WAD 02">
+      <option name="closed" value="true" />
+      <created>1748134938604</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748134938604</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Preliminar Analisis Entrada WAD 03">
+      <option name="closed" value="true" />
+      <created>1748135124667</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748135124667</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Preliminar Analisis Entrada WAD 03">
+      <option name="closed" value="true" />
+      <created>1748135249004</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748135249004</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Preliminar Analisis Entrada WAD 03">
+      <option name="closed" value="true" />
+      <created>1748135357830</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748135357830</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Before of win32py" />
     <MESSAGE value="Rutina de error imagenes no incosistentes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rutina de error imagenes no incosistentes" />
+    <MESSAGE value="Before remove roow with &quot;'''&quot; characters" />
+    <MESSAGE value="Avoid Process Identical Images WAD" />
+    <MESSAGE value="Preliminar Analisis Entrada WAD" />
+    <MESSAGE value="Preliminar Analisis Entrada WAD 01" />
+    <MESSAGE value="Preliminar Analisis Entrada WAD 02" />
+    <MESSAGE value="Preliminar Analisis Entrada WAD 03" />
+    <option name="LAST_COMMIT_MESSAGE" value="Preliminar Analisis Entrada WAD 03" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -166,13 +259,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>138</line>
+          <line>163</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/insertar_ano.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="27" />
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CN_WAD_IN_Code.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
