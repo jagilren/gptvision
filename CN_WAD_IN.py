@@ -3,11 +3,9 @@ import openai
 import pandas as pd
 from openpyxl import load_workbook
 from PIL import Image
+from pathlib import Path
 
 # Configura tu clave de API de OpenAI
-
-
-
 
 
 # 2. Guardar en DataFrame
@@ -18,7 +16,7 @@ def procesar_texto_a_df(texto_csv):
     return df
 
 # 3. Agregar al archivo Excel
-def agregar_a_excel(df, ruta_excel, hoja="WAD Entrada"):
+def agregar_a_excel(df, ruta_excel, hoja="Datos_WAD"):
     try:
         libro = load_workbook(ruta_excel)
         if hoja in libro.sheetnames:
@@ -38,11 +36,11 @@ def agregar_a_excel(df, ruta_excel, hoja="WAD Entrada"):
     libro.save(ruta_excel)
 
 # 4. Ejecutar todo
-def main():
-    texto_csv=""
-    texto_extraido = procesar_texto_a_df(texto_csv)
-    df = procesar_texto_a_df(texto_extraido)
-    agregar_a_excel(df, "WAD Entrada.xlsx")
+def main(respuesta,RUTA_EXCEL):
+
+    df = procesar_texto_a_df(respuesta)
+    agregar_a_excel(df, RUTA_EXCEL)
+
 
 # Llamar la función principal
-#main()
+

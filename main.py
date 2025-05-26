@@ -96,13 +96,13 @@ def mover_imagen(ruta_origen, nombre_archivo,ruta_destino):
 
 
 def conseguir_rutas(INIFILE):
-    CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR = leer_ini.leer_folders(INIFILE)
+    CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR,RUTA_EXCEL = leer_ini.leer_folders(INIFILE)
     PROMPT = leer_ini.leer_prompt(INIFILE)
     # Crea carpetas si no existen
     os.makedirs(CARPETA_IMAGENES, exist_ok=True)
     os.makedirs(CARPETA_CSV, exist_ok=True)
     os.makedirs(CARPETA_PROCESADAS, exist_ok=True)
-    return CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR
+    return CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR, RUTA_EXCEL
     # Prompt personalizado en español
 
 def conseguir_prompt(INIFILE):
@@ -125,7 +125,7 @@ def csv_WAD_OUT(respuesta, csv_content,ruta_mover,archivo_imagen):
     print(f"📦 Imagen movida a: {nueva_ruta}")
 
 
-def procesar_imagenes_wad_out(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR,PROMPT):
+def procesar_imagenes_wad(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR, PROMPT):
     archivos = [
         f for f in os.listdir(CARPETA_IMAGENES)
         if f.lower().endswith((".png", ".jpg", ".jpeg"))
@@ -146,7 +146,7 @@ def procesar_imagenes_wad_out(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS,
     for archivo_imagen in archivos:
         ruta_mover = os.path.join(CARPETA_IMAGENES, archivo_imagen)
         imagen_codificada = codificar_base64(ruta_mover)
-        print(f"🧠 Procesando: {archivo_imagen}")
+        print(f"📷📷📷🪼🪼 Procesando: {archivo_imagen}")
 
 
         try:
@@ -179,20 +179,13 @@ def procesar_imagenes_wad_out(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS,
                 ruta_imagen_error = CARPETA_ERROR
                 nueva_ruta = mover_imagen(ruta_mover, archivo_imagen, ruta_imagen_error)
                 return
+            if len(RUTA_EXCEL)== 0:
+                file_process = csv_WAD_OUT(respuesta, csv_content, ruta_mover, archivo_imagen)
+            else:
+                file_process = CN_WAD_IN.main(csv_content, RUTA_EXCEL)
+                nueva_ruta = mover_imagen(ruta_mover, archivo_imagen, CARPETA_PROCESADAS)
+                print(f"📦 Imagen movida a: {nueva_ruta}")
 
-            proceso_CSV_WAD_OUT = csv_WAD_OUT(respuesta,csv_content,ruta_mover,archivo_imagen)
-
-            '''trozo de codigo duplicado'''
-            '''csv_content= asegurar_encabezados_csv(csv_content)
-            ruta_csv = generar_nombre_csv()
-            with open(ruta_csv, "w", encoding="utf-8") as f:
-                f.write(csv_content)
-            insertar_ano.insertar_ano(ruta_csv)
-            print(f"📄 CSV guardado como: {ruta_csv}")
-
-            nueva_ruta = mover_imagen(ruta_mover, archivo_imagen, CARPETA_PROCESADAS)
-            print(f"📦 Imagen movida a: {nueva_ruta}")
-            '''
         except Exception as e:
             print(f"❌ Error procesando {archivo_imagen}: {e}")
 
@@ -215,15 +208,17 @@ client = OpenAI(api_key=api_key)
 
 if __name__ == "__main__":
     while True:
-        '''Bloque para Cianura WAT OUT'''
+        '''Bloque para Cianuro WAT OUT'''
         # Rutas para adquirir y disponer imágenes
 
-        CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR=conseguir_rutas("SETTINGS.INI")
-        PROMPT = conseguir_prompt("SETTINGS.INI")
-        procesar_imagenes_wad_out(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR,PROMPT)
-        time.sleep(3)
+        CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR,RUTA_EXCEL =conseguir_rutas("SETTINGS_OUT.INI")
+        PROMPT = conseguir_prompt("SETTINGS_OUT.INI")
+        procesar_imagenes_wad(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR, PROMPT)
+        time.sleep(30)
 
         '''Bloque para Cianuro WAD IN'''
+        CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR, RUTA_EXCEL = conseguir_rutas("SETTINGS_IN.INI")
+        PROMPT = conseguir_prompt("SETTINGS_IN.INI")
+        procesar_imagenes_wad(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR, PROMPT)
         print(f"Ciclo terminado {datetime.now()}")
-        #CN_WAD_IN.extraer_tabla_desde_imagen("ruta_imagen")
-        #time.sleep(3)
+        #time.sleep(30)

@@ -8,7 +8,8 @@ def leer_folders(config_file_path):
     CSV_FOLDER = config.get('Paths', 'CARPETA_CSV')
     CARPETA_PROCESADAS = config.get('Paths', 'CARPETA_PROCESADAS')
     CARPETA_IMAGENES_ERROR = config.get('Paths', 'CARPETA_ERROR')
-    return CARPETA_IMAGENES, CSV_FOLDER,CARPETA_PROCESADAS,CARPETA_IMAGENES_ERROR
+    RUTA_EXCEL= config.get('Paths', 'RUTA_EXCEL')
+    return CARPETA_IMAGENES, CSV_FOLDER,CARPETA_PROCESADAS,CARPETA_IMAGENES_ERROR,RUTA_EXCEL
     # Asegurar que las carpetas existan
 
 
