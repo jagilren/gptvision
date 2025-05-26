@@ -15,6 +15,6 @@ def leer_folders(config_file_path):
 def leer_prompt(config_file_path):
     config = configparser.ConfigParser()
     config.read(config_file_path)
-
-    # Obtener rutas
-    PROMPOT = config.get('Prompt', 'Prompt_Vision')
+    # Obtener prompt
+    PROMPT = config.get('Prompt', 'Prompt_gpt4o')
+    return PROMPT

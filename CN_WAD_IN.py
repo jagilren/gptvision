@@ -7,22 +7,8 @@ from PIL import Image
 # Configura tu clave de API de OpenAI
 
 
-# Ruta a la imagen que contiene la tabla
-ruta_imagen = "WhatsApp Image 2025-05-23 at 06.30.43.jpeg"
 
-# 1. Convertir imagen a texto usando OpenAI
-def extraer_tabla_desde_imagen(imagen_path):
-    with open(imagen_path, "rb") as img_file:
-        response = openai.Image.create_variation(
-            image=img_file,
-            model="gpt-4o",  # asegúrate que tu cuenta soporte vision
-            prompt=(
-                "Extrae los datos debajo de los encabezados 'Date', 'Time', 'Value', 'Absorbance'. "
-                "Agrega el año 2025 al campo de fecha. Devuelve los registros en formato CSV, sin encabezados."
-            ),
-            response_format="text"
-        )
-    return response["data"]
+
 
 # 2. Guardar en DataFrame
 def procesar_texto_a_df(texto_csv):
@@ -53,9 +39,10 @@ def agregar_a_excel(df, ruta_excel, hoja="WAD Entrada"):
 
 # 4. Ejecutar todo
 def main():
-    texto_extraido = extraer_tabla_desde_imagen(ruta_imagen)
+    texto_csv=""
+    texto_extraido = procesar_texto_a_df(texto_csv)
     df = procesar_texto_a_df(texto_extraido)
     agregar_a_excel(df, "WAD Entrada.xlsx")
 
 # Llamar la función principal
-main()
+#main()
