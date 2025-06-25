@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed1d2492-8ff1-43b4-a0c6-871357129507" name="Changes" comment="Preliminar Analisis Entrada WAD 05">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SETTINGS_OUT.INI" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OpenAIVisionPreview.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OpenAIVisionPreview.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ed1d2492-8ff1-43b4-a0c6-871357129507" name="Changes" comment="Preliminar Analisis Entrada WAD 06">
+      <change afterPath="$PROJECT_DIR$/reasoning.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CN_WAD_IN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CN_WAD_IN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SETTINGS.INI" beforeDir="false" afterPath="$PROJECT_DIR$/SETTINGS_IN.INI" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leer_ini.py" beforeDir="false" afterPath="$PROJECT_DIR$/leer_ini.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SETTINGS_OUT.INI" beforeDir="false" afterPath="$PROJECT_DIR$/SETTINGS_OUT.INI" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,13 +57,14 @@
   "keyToString": {
     "Python.CN_WAD_IN.executor": "Debug",
     "Python.CN_WAD_in_Code.executor": "Debug",
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "Python.myservice.executor": "Debug",
+    "Python.reasoning.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/innovacion/PycharmProjects/OpenAIVisionPreview"
+    "last_opened_file_path": "C:/Users/innovacion/PycharmProjects/CreateSupersetRectangles"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -143,8 +140,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="reasoning" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OpenAIVisionPreview" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/reasoning.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.reasoning" />
         <item itemvalue="Python.myservice" />
         <item itemvalue="Python.CN_WAD_IN" />
       </list>
@@ -153,7 +173,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-dfff61a61320-9cdd278e9d02-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.25410.159" />
+        <option value="bundled-python-sdk-8336bb23522e-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.19072.16" />
       </set>
     </attachedChunks>
   </component>
@@ -262,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748135672788</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Preliminar Analisis Entrada WAD 06">
+      <option name="closed" value="true" />
+      <created>1748298928109</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748298928109</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -277,7 +305,8 @@
     <MESSAGE value="Preliminar Analisis Entrada WAD 03" />
     <MESSAGE value="Preliminar Analisis Entrada WAD 04" />
     <MESSAGE value="Preliminar Analisis Entrada WAD 05" />
-    <option name="LAST_COMMIT_MESSAGE" value="Preliminar Analisis Entrada WAD 05" />
+    <MESSAGE value="Preliminar Analisis Entrada WAD 06" />
+    <option name="LAST_COMMIT_MESSAGE" value="Preliminar Analisis Entrada WAD 06" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -286,6 +315,16 @@
           <url>file://$PROJECT_DIR$/myservice.py</url>
           <line>34</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/reasoning.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/reasoning.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

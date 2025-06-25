@@ -5,7 +5,7 @@ from openpyxl import load_workbook
 from PIL import Image
 from pathlib import Path
 
-# Configura tu clave de API de OpenAI
+#1 Configura tu clave de API de OpenAI
 
 
 # 2. Guardar en DataFrame

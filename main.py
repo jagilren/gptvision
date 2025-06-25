@@ -214,7 +214,7 @@ if __name__ == "__main__":
         CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR,RUTA_EXCEL =conseguir_rutas("SETTINGS_OUT.INI")
         PROMPT = conseguir_prompt("SETTINGS_OUT.INI")
         procesar_imagenes_wad(CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR, PROMPT)
-        time.sleep(30)
+        time.sleep(3)
 
         '''Bloque para Cianuro WAD IN'''
         CARPETA_IMAGENES, CARPETA_CSV, CARPETA_PROCESADAS, CARPETA_ERROR, RUTA_EXCEL = conseguir_rutas("SETTINGS_IN.INI")
